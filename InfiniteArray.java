@@ -12,23 +12,19 @@ public class InfiniteArray {
     }
 
     static int findingRange(int[] arr, int target){
-
-        //first find range
-        //starting with size 2;
-
+        //first we'll find the range
+        //first we start with a box of 2
         int start = 0;
-        int end = 1;
+        int end  = 1;
 
         while(target > arr[end]){
-            int temp = end+1;
-            // new end = previous end + box_size*2
-            int newEnd = end + (end - start + 1)*2;
+            int temp = end + 1;
+            end = end + (end - start + 1)*2;
             start = temp;
         }
 
         return BinarySearch(arr, target, start, end);
     }
-
 
     static int BinarySearch(int[] arr, int target, int start, int end) {
 
@@ -47,4 +43,6 @@ public class InfiniteArray {
 
         return -1;
     }
+
+
 }
