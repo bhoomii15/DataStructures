@@ -36,4 +36,8 @@ public class PatternQs {
             System.out.println();
         }
     }
+
+    static void pattern8(int n){
+
+    }
 }
