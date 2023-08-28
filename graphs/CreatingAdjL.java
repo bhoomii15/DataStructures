@@ -29,6 +29,20 @@ public class CreatingAdjL {
             }
         }
     }
+
+    public static boolean hasPath(ArrayList<Edge>[] graph, int src, int dest, boolean[] vis){
+        if(src == dest){
+            return true;
+        }
+        vis[src] = true;
+        for(int i = 0; i < graph[src].size(); i++){
+            Edge e = graph[src].get(i);
+            if(!vis[e.dest] && hasPath(graph, e.dest, dest, vis)){
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         int V = 5;
         ArrayList<Edge> [] graph = new ArrayList[V];
@@ -64,6 +78,8 @@ public class CreatingAdjL {
             Edge e = graph[2].get(i);
             System.out.println(e.dest);
         }
+
+        System.out.println(hasPath(graph, 0, 9, new boolean[V]));
     }
 
 
